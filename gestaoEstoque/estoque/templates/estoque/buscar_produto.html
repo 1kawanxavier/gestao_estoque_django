@@ -1,3 +1,81 @@
+<style>
+    /* Estilo geral da página */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Estilo do contêiner central */
+    .container {
+        text-align: center;
+        padding: 30px;
+        background-color: #ffffff;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    /* Estilo do título principal */
+    h1 {
+        color: #333;
+        font-size: 26px;
+        margin-bottom: 25px;
+        font-weight: bold;
+    }
+
+    /* Estilo dos rótulos e campos do formulário */
+    form label {
+        display: block;
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    form input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    form input[type="text"]:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    }
+
+    /* Estilo do botão de busca */
+    button {
+        width: 100%;
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+        transform: scale(1.03);
+    }
+</style>
+
+
 <form method="POST">
     {% csrf_token %}
     <label>Nome do Produto:</label><input type="text" name="nome" required><br>
