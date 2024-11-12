@@ -1,0 +1,5 @@
+<form method="POST">
+    {% csrf_token %}
+    <label>Quantidade:</label><input type="number" name="quantidade" value="{{ produto.quantidade }}" required><br>
+    <button type="submit">Atualizar Produto</button>
+</form>

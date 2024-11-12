@@ -1,0 +1,20 @@
+<h1>Produtos em Estoque</h1>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Ações</th>
+    </tr>
+    {% for produto in produtos %}
+    <tr>
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.quantidade }}</td>
+        <td>{{ produto.preco }}</td>
+        <td>
+            <a href="{% url 'atualizar_produto' produto.id %}">Atualizar</a> |
+            <a href="{% url 'remover_produto' produto.id %}">Remover</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,5 @@
+<form method="POST">
+    {% csrf_token %}
+    <label>Nome do Produto:</label><input type="text" name="nome" required><br>
+    <button type="submit">Buscar Produto</button>
+</form>
