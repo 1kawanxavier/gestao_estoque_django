@@ -17,16 +17,19 @@ def listar_produtos(request):
     return render(request, "estoque/listar_produtos.html", {"produtos": produtos})
 
 def buscar_produto(request):
-    if request.method == "POST":
-        nome = request.POST.get("nome")
-        produtos = Produto.objects.filter(nome__icontains=nome)
-        return render(request, "estoque/listar_produtos.html", {"produtos": produtos})
-    return render(request, "estoque/buscar_produto.html")
+    produtos = []
+    if request.method == "GET":
+        nome = request.GET.get("nome")  # Captura o parâmetro "nome" da URL
+        if nome:
+            produtos = Produto.objects.filter(nome__icontains=nome)  # Busca produtos com nomes semelhantes
+    return render(request, "estoque/buscar_produto.html", {"produtos": produtos})
 
 def atualizar_produto(request, produto_id):
     produto = Produto.objects.get(id=produto_id)
     if request.method == "POST":
+        produto.nome = request.POST.get("nome")  # Atualiza o nome
         produto.quantidade = int(request.POST.get("quantidade"))
+        produto.preco = float(request.POST.get("preco"))  # Atualiza o preço
         produto.save()
         return redirect("listar_produtos")
     return render(request, "estoque/atualizar_produto.html", {"produto": produto})

@@ -76,8 +76,18 @@
 </style>
 
 
-<form method="POST">
-    {% csrf_token %}
-    <label>Nome do Produto:</label><input type="text" name="nome" required><br>
+<form method="GET" action="">
+    <label>Nome do Produto:</label>
+    <input type="text" name="nome" required>
     <button type="submit">Buscar Produto</button>
 </form>
+
+{% if produtos %}
+    <ul>
+        {% for produto in produtos %}
+            <li>{{ produto.nome }} - Quantidade: {{ produto.quantidade }} - Preço: {{ produto.preco }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum produto encontrado.</p>
+{% endif %}
